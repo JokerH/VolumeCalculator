@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstimationTool_New
+namespace VolumeCalculator
 {
     class Point
     {
