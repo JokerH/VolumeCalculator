@@ -1,0 +1,10 @@
+C:\Users\Hanpx.MSI\Dropbox\Codes\COMtest\COMtest\bin\x64\Release\COMtest.dll
+C:\Users\Hanpx.MSI\Dropbox\Codes\COMtest\COMtest\bin\x64\Release\COMtest.pdb
+C:\Users\Hanpx.MSI\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.dll
+C:\Users\Hanpx.MSI\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.pdb
+D:\Dropbox\Codes\COMtest\COMtest\bin\x64\Release\COMtest.dll
+D:\Dropbox\Codes\COMtest\COMtest\bin\x64\Release\COMtest.pdb
+D:\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.csprojResolveAssemblyReference.cache
+D:\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.dll
+D:\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.pdb
+C:\Users\Hanpx.MSI\Dropbox\Codes\COMtest\COMtest\obj\x64\Release\COMtest.csprojResolveAssemblyReference.cache

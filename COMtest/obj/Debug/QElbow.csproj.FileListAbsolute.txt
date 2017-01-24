@@ -1,0 +1,15 @@
+D:\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.dll
+D:\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.pdb
+D:\Dropbox\Codes\QElbow\COMtest\obj\Debug\QElbow.csprojResolveAssemblyReference.cache
+D:\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.dll
+D:\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.pdb
+C:\Users\phan\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.dll
+C:\Users\phan\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.pdb
+C:\Users\phan\Dropbox\Codes\QElbow\COMtest\obj\Debug\QElbow.csprojResolveAssemblyReference.cache
+C:\Users\phan\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.dll
+C:\Users\phan\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.pdb
+C:\Users\Hanpx.MSI\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.dll
+C:\Users\Hanpx.MSI\Dropbox\Codes\QElbow\COMtest\bin\Debug\COMtest.pdb
+C:\Users\Hanpx.MSI\Dropbox\Codes\QElbow\COMtest\obj\Debug\QElbow.csprojResolveAssemblyReference.cache
+C:\Users\Hanpx.MSI\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.dll
+C:\Users\Hanpx.MSI\Dropbox\Codes\QElbow\COMtest\obj\Debug\COMtest.pdb
