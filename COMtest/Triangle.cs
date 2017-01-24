@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Media.Media3D;
+﻿using System.Windows.Media.Media3D;
+using MathNet.Numerics;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace VolumeCalculator
 {
@@ -53,25 +49,48 @@ namespace VolumeCalculator
             ///    | /       |
             ///    p4 ----- p5
 
+            Point[] points1 = { p1, p2, p3, p4 };
+            Point[] points2 = { p1, p3, p4, p5 };
+            Point[] points3 = { p1, p4, p5 };
+
             triangleVolume = 
-                this.getTetrahedronVolume(p1, p2, p3, p4) 
-                + this.getTetrahedronVolume(p1, p3, p4, p5) 
-                + this.getPrismVolume(p1, p4, p5);
+                this.getTetrahedronVolume(points1) 
+                + this.getTetrahedronVolume(points2) 
+                + this.getPrismVolume(points3, BaseZvalue);
 
             return triangleVolume;
         }
 
-        private double getTetrahedronVolume(Point P1, Point P2, Point P3, Point P4)
+        //private double getTetrahedronVolume(Point P1, Point P2, Point P3, Point P4)
+        private double getTetrahedronVolume(Point[] points)
         {
             double volume = 0;
-
+            DenseMatrix matrix = new DenseMatrix(4);
+            for (int i = 0; i < matrix.ColumnCount; i++)
+            {
+                matrix[0, i] = 1;
+                matrix[1, i] = points[i].X;
+                matrix[2, i] = points[i].Y;
+                matrix[3, i] = points[i].Z;
+            }
+            volume = System.Math.Abs(matrix.Determinant()) / 6;
             return volume;
         }
 
-        private double getPrismVolume(Point P1, Point P2, Point P3)
+        //private double getPrismVolume(Point P1, Point P2, Point P3)
+        private double getPrismVolume(Point[] points, double BaseZvalue)
         {
             double volume = 0;
+            double height = points[0].Z - BaseZvalue;
 
+            //Heron's formula: S = sqrt(p*(p-a)*(p-b)*(p-c))
+            double a = points[0].GetDistance(points[1]);
+            double b = points[0].GetDistance(points[2]);
+            double c = points[1].GetDistance(points[2]);
+            double p = (a + b + c) / 2;
+
+            volume = height * System.Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            
             return volume;
         }
 
