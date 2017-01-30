@@ -80,6 +80,7 @@ namespace VolumeCalculator
             }
             volume = System.Math.Abs(matrix.Determinant()) / 6;
              return volume;
+            //to be checked
         }
 
         //private double getPrismVolume(Point P1, Point P2, Point P3)
@@ -98,6 +99,6 @@ namespace VolumeCalculator
 
             return volume;
         }
-
+        ///it has been checked that the area of triangle is correct. 
     }
 }
