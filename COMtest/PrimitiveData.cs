@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace VolumeCalculator
 {
-    class PrimitivePoints
+    class PrimitiveData
     {
         //OriginalPoints 
         public List<Point> originalPoints = new List<Point>();
-
-        //Find out the connection relationship between points
+                
+        /// <summary>
+        /// prepare to extract dimensions for elbows
+        /// create points and find out the connection relationship between points
+        /// </summary>
+        /// <param name="tempLine"></param>
         public void createOriginalPoints(string[] tempLine)
         {
             //foreach (string line in tempLine)
@@ -106,6 +110,40 @@ namespace VolumeCalculator
                 point3.ConnectedPoints.Add(point2);
                 
             }
+        }
+
+        /// <summary>
+        /// create seperate triangles to calculate the volumes
+        /// </summary>
+        /// <param name="tempLine"></param>
+        /// <returns></returns>
+        public List<Triangle> createTriangle(string[] tempLine)
+        {
+            List<Triangle> OriginalTriangles = new List<Triangle>();
+
+            for (int i = 0; i < tempLine.Length - 1; i++)
+            {
+                string[] currentLine = tempLine[i].Split(',');
+                Triangle triangle = new Triangle();
+
+                triangle.p1.X = Convert.ToDouble(currentLine[0]);
+                triangle.p1.Y = Convert.ToDouble(currentLine[1]);
+                triangle.p1.Z = Convert.ToDouble(currentLine[2]);
+                triangle.p2.X = Convert.ToDouble(currentLine[3]);
+                triangle.p2.Y = Convert.ToDouble(currentLine[4]);
+                triangle.p2.Z = Convert.ToDouble(currentLine[5]);
+                triangle.p3.X = Convert.ToDouble(currentLine[6]);
+                triangle.p3.Y = Convert.ToDouble(currentLine[7]);
+                triangle.p3.Z = Convert.ToDouble(currentLine[8]);
+
+                triangle.normalVector.X = Convert.ToDouble(currentLine[9]);
+                triangle.normalVector.Y = Convert.ToDouble(currentLine[10]);
+                triangle.normalVector.Z = Convert.ToDouble(currentLine[11]);
+
+                OriginalTriangles.Add(triangle);
+            }
+            
+            return OriginalTriangles;
         }
     }
 }

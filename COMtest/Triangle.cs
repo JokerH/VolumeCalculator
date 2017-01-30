@@ -6,11 +6,11 @@ namespace VolumeCalculator
 {
     class Triangle
     {
-        Point p1;
-        Point p2;
-        Point p3;
+        public Point p1 = new Point();
+        public Point p2 = new Point();
+        public Point p3 = new Point();
 
-        Vector3D normalVector = new Vector3D();
+        public Vector3D normalVector = new Vector3D();
 
 
         /// <summary>
@@ -53,12 +53,17 @@ namespace VolumeCalculator
             Point[] points2 = { p1, p3, p4, p5 };
             Point[] points3 = { p1, p4, p5 };
 
-            triangleVolume = 
-                this.getTetrahedronVolume(points1) 
-                + this.getTetrahedronVolume(points2) 
+            triangleVolume =
+                this.getTetrahedronVolume(points1)
+                + this.getTetrahedronVolume(points2)
                 + this.getPrismVolume(points3, BaseZvalue);
 
-            return triangleVolume;
+            int flag = 1;
+            Vector3D Positive = new Vector3D(0, 0, 1);
+            if (Vector3D.DotProduct(Positive, normalVector) <= 0)
+                flag = -1;
+
+            return triangleVolume*flag;
         }
 
         //private double getTetrahedronVolume(Point P1, Point P2, Point P3, Point P4)
@@ -90,7 +95,7 @@ namespace VolumeCalculator
             double p = (a + b + c) / 2;
 
             volume = height * System.Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            
+
             return volume;
         }
 

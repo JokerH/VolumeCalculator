@@ -72,6 +72,7 @@ namespace VolumeCalculator
                 }
             }
 
+
             ///write down all the displaynames of items in a txt file
             //FileStream fs = new FileStream(@"D:\temp\ELBOW.txt", FileMode.Create);
             //StreamWriter sw = new StreamWriter(fs);
@@ -114,14 +115,14 @@ namespace VolumeCalculator
                 }
 
             }
-            MessageBox.Show(LowestItemsList.Count.ToString()+" model items found in the current model.");
+            MessageBox.Show(LowestItemsList.Count.ToString() + " model items found in the current model.");
 
             //ModelItemCollection oModelColl = new ModelItemCollection();
             List<ModelItem> ElbowList = new List<ModelItem>();
             //int num = 0;
             foreach (var item in LowestItemsList)
             {
-                if (item.DisplayName.IndexOf("ELBOW") >= 0)
+                if (item.DisplayName.IndexOf("TUBE") >= 0)
                 {
                     //sw.WriteLine("{0}: The display name is '{1}'", num, item.DisplayName);
                     //num++;
@@ -164,91 +165,57 @@ namespace VolumeCalculator
                     }
                 }
 
-                string primitiveData = callbkListener.coordinate.ToString();
+                //string primitiveData = callbkListener.coordinate.ToString();
 
                 //List<List<string>> originalPoints = new List<List<string>>();
 
                 //string[] temp = primitiveData.Split('\r\n',',');
-                string[] tempLine = Regex.Split(primitiveData, "\r\n", RegexOptions.IgnoreCase);
+                string[] tempLine = Regex.Split(callbkListener.coordinate.ToString(), "\r\n", RegexOptions.IgnoreCase);
 
-                #region//Obtain original points
-                //foreach (string line in tempLine)
-                //{
-                //    if (line != "")
-                //    {
-                //        string[] temp = line.Split(',');
+                PrimitiveData primitiveData = new PrimitiveData();
+                //primitivePoints.createOriginalPoints(tempLine);
+                List<Triangle> OriginalTriangles = primitiveData.createTriangle(tempLine);
 
-                //        {
-                //            for (int i = 0; i < 9; i += 3)
-                //            {
-
-                //                List<string> list = new List<string>();
-                //                for (int j = i; j < i + 3; j++)
-                //                {
-                //                    list.Add(temp[j]);
-                //                }
-                //                originalPoints.Add(list);
-
-                //            }
-                //        }
-                //    }
-                //}
-                #endregion
-
-                #region//delete the duplicate points in the list
-                ////http://blog.sina.com.cn/s/blog_6148930e0100odqx.html
-
-                //List<List<string>> newPoints = new List<List<string>>();
-
-                //newPoints.Add(originalPoints[0]);
-                //int flag = 0;
-
-                //for (int i = 0; i < originalPoints.Count; i++)
-                //{
-                //    flag = 0;
-
-                //    for (int j = 0; (j < newPoints.Count) && (flag != 1); j++)
-                //    {
-                //        //if ((points[i][0] != Npoints[j][0]) && (points[i][1] != Npoints[j][1]) && (points[i][2] != Npoints[j][2]))
-                //        if ((originalPoints[i][0] == newPoints[j][0]) && (originalPoints[i][1] == newPoints[j][1]) && (originalPoints[i][2] == newPoints[j][2]))
-                //        {
-                //            //if (!(points[i][1] == Npoints[j][1]))
-                //            //{
-                //            //    if (!(points[i][2] == Npoints[j][2]))
-                //            //    {
-                //            //        Npoints.Add(points[i]);
-                //            //        k++;
-                //            //    }
-                //            //}
-                //            flag = 1;
-                //        }
-                //    }
-
-                //    if (flag == 0)
-                //    {
-                //        newPoints.Add(originalPoints[i]);
-                //    }
-                //}
-                #endregion
-
-                PrimitivePoints primitivePoints = new PrimitivePoints();
-                primitivePoints.createOriginalPoints(tempLine);
-
-                Elbow elbow = new Elbow();
-                string Dimensions = elbow.GetDimensions(primitivePoints.originalPoints);
-
-                if (Dimensions != "ERROR")
+                double BaseZvalue = 0;
+                foreach (Triangle triangle in OriginalTriangles)
                 {
-                    Result.Append(ElbowList[i].DisplayName.ToString() + ", " + Dimensions + "\r\n");
+                    if (triangle.p1.Z < BaseZvalue)
+                    {
+                        BaseZvalue = triangle.p1.Z;
+                    }
+                    if (triangle.p2.Z < BaseZvalue)
+                    {
+                        BaseZvalue = triangle.p2.Z;
+                    }
+                    if (triangle.p3.Z < BaseZvalue)
+                    {
+                        BaseZvalue = triangle.p3.Z;
+                    }
                 }
-                else
+
+                double Volume = 0;
+
+                foreach (Triangle triangle in OriginalTriangles)
                 {
-                    errorNum++;
-                    Result.Append(ElbowList[i].DisplayName.ToString() + ", is not applicable to the algorithm."+ "\r\n");
+                    Volume += triangle.getVolume(BaseZvalue);
                 }
+
+                Result.Append("Volume is: " + Volume);
+                //Elbow elbow = new Elbow();
+                //string Dimensions = elbow.GetDimensions(primitiveData.originalPoints);
+
+                //if (Dimensions != "ERROR")
+                //{
+                //    Result.Append(ElbowList[i].DisplayName.ToString() + ", " + Dimensions + "\r\n");
+                //}
+                //else
+                //{
+                //    errorNum++;
+                //    Result.Append(ElbowList[i].DisplayName.ToString() + ", is not applicable to the algorithm."+ "\r\n");
+                //}
             }
             //MessageBox.Show(Result.ToString());
-            FileStream fs = new FileStream(@"D:\result.txt", FileMode.Create);
+            FileStream fs = new FileStream(@"E:\result.txt", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.Write(Result);
             sw.Close();
