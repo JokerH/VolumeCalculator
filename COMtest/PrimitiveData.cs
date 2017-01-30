@@ -142,7 +142,6 @@ namespace VolumeCalculator
 
                 OriginalTriangles.Add(triangle);
             }
-            
             return OriginalTriangles;
         }
     }

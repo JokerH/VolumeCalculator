@@ -49,14 +49,14 @@ namespace VolumeCalculator
             ///    | /       |
             ///    p4 ----- p5
 
-            Point[] points1 = { p1, p2, p3, p4 };
-            Point[] points2 = { p1, p3, p4, p5 };
-            Point[] points3 = { p1, p4, p5 };
+            Point[] Tetrahedron1 = { p1, p2, p3, p4 };
+            Point[] Tetrahedron2 = { p1, p3, p4, p5 };
+            Point[] Prism = { p1, p4, p5 };
 
             triangleVolume =
-                this.getTetrahedronVolume(points1)
-                + this.getTetrahedronVolume(points2)
-                + this.getPrismVolume(points3, BaseZvalue);
+                getTetrahedronVolume(Tetrahedron1)
+                + getTetrahedronVolume(Tetrahedron2)
+                + getPrismVolume(Prism, BaseZvalue);
 
             int flag = 1;
             Vector3D Positive = new Vector3D(0, 0, 1);
@@ -79,7 +79,7 @@ namespace VolumeCalculator
                 matrix[3, i] = points[i].Z;
             }
             volume = System.Math.Abs(matrix.Determinant()) / 6;
-            return volume;
+             return volume;
         }
 
         //private double getPrismVolume(Point P1, Point P2, Point P3)

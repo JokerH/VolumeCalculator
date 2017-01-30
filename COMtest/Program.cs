@@ -120,14 +120,20 @@ namespace VolumeCalculator
             //ModelItemCollection oModelColl = new ModelItemCollection();
             List<ModelItem> ElbowList = new List<ModelItem>();
             //int num = 0;
+
+            //foreach (var item in LowestItemsList)
+            //{
+            //    if (item.DisplayName.IndexOf("TUBE") >= 0)
+            //    {
+            //        //sw.WriteLine("{0}: The display name is '{1}'", num, item.DisplayName);
+            //        //num++;
+            //        ElbowList.Add(item);
+            //    }
+            //}
+            ///test
             foreach (var item in LowestItemsList)
             {
-                if (item.DisplayName.IndexOf("TUBE") >= 0)
-                {
-                    //sw.WriteLine("{0}: The display name is '{1}'", num, item.DisplayName);
-                    //num++;
-                    ElbowList.Add(item);
-                }
+                ElbowList.Add(item);
             }
 
             //sw.Close();
