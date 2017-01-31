@@ -5,3 +5,10 @@ C:\Users\phan\Desktop\GitHub\VolumeCalculator\COMtest\bin\Debug\MathNet.Numerics
 C:\Users\phan\Desktop\GitHub\VolumeCalculator\COMtest\obj\Debug\VolumeCalculator.csprojResolveAssemblyReference.cache
 C:\Users\phan\Desktop\GitHub\VolumeCalculator\COMtest\obj\Debug\COMtest.dll
 C:\Users\phan\Desktop\GitHub\VolumeCalculator\COMtest\obj\Debug\COMtest.pdb
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\bin\Debug\COMtest.dll
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\bin\Debug\COMtest.pdb
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\bin\Debug\MathNet.Numerics.dll
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\bin\Debug\MathNet.Numerics.xml
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\obj\Debug\VolumeCalculator.csprojResolveAssemblyReference.cache
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\obj\Debug\COMtest.dll
+C:\Users\Hanpx.MSI\Documents\GitHub\VolumeCalculator\COMtest\obj\Debug\COMtest.pdb

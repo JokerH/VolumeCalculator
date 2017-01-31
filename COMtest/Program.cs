@@ -14,7 +14,7 @@ using COMApi = Autodesk.Navisworks.Api.Interop.ComApi;
 
 namespace VolumeCalculator
 {
-    [PluginAttribute("QElbow1201", "Alex", DisplayName = "QElbow1201")]
+    [PluginAttribute("Volume Calculator", "Alex", DisplayName = "Volume Calculator")]
     [AddInPluginAttribute(AddInLocation.AddIn)]
     public class Program : AddInPlugin
     {

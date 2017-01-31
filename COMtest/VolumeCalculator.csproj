@@ -106,9 +106,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>IF EXIST "C:\Program Files\Autodesk\Navisworks Simulate 2015\Plugins\$(TargetName)\" rmdir /S /Q "$(ProjectDir)\..\..\..\Plugins\$(TargetName)\"
+    <PostBuildEvent>IF EXIST "D:\Program Files\Autodesk\Navisworks Manage 2016\Plugins\$(TargetName)\" rmdir /S /Q "$(ProjectDir)\..\..\..\Plugins\$(TargetName)\"
 
-xcopy /Y "$(TargetDir)*.*" "C:\Program Files\Autodesk\Navisworks Simulate 2015\Plugins\$(Targetname)\"</PostBuildEvent>
+xcopy /Y "$(TargetDir)*.*" "D:\Program Files\Autodesk\Navisworks Manage 2016\Plugins\$(Targetname)\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,6 +6,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files\Autodesk\Navisworks Simulate 2015\Roamer.exe</StartProgram>
+    <StartProgram>D:\Program Files\Autodesk\Navisworks Manage 2016\Roamer.exe</StartProgram>
   </PropertyGroup>
 </Project>
