@@ -1,6 +1,7 @@
 ﻿using System.Windows.Media.Media3D;
 using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra.Double;
+using System.Windows.Forms;
 
 namespace VolumeCalculator
 {
@@ -25,14 +26,16 @@ namespace VolumeCalculator
             double Zmin = p1.Z;
             if (p2.Z < Zmin)
             {
-                p1 = temp;
+                //p1 = temp;
+                temp = p1;
                 p1 = p2;
                 p2 = temp;
                 Zmin = p1.Z;
             }
             if (p3.Z < Zmin)
             {
-                p1 = temp;
+                //p1 = temp;
+                temp = p1;
                 p1 = p3;
                 p3 = temp;
                 Zmin = p1.Z;
@@ -95,7 +98,10 @@ namespace VolumeCalculator
             double p = (a + b + c) / 2;
 
             volume = height * System.Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-
+            if (!(volume>=0) )
+            {
+                volume = 0;
+            }
             return volume;
         }
         ///it has been checked that the area of triangle is correct. 
