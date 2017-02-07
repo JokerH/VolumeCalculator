@@ -98,6 +98,7 @@
     <Compile Include="Point.cs" />
     <Compile Include="PrimitiveData.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Program1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Triangle.cs" />
   </ItemGroup>
