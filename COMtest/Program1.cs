@@ -25,7 +25,7 @@ namespace VolumeCalculator
         {
             //Document oDoc = Autodesk.Navisworks.Api.Application.ActiveDocument;
             //ModelItemCollection mModelColl1 = oDoc.CurrentSelection.SelectedItems;
-
+            
             // get the current selection
             ModelItemCollection oModelColl =
                 Autodesk.Navisworks.Api.Application.
